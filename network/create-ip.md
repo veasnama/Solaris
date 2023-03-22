@@ -3,7 +3,7 @@
 
 - ip v4 is configured as follow
 
-```
+```bash
 # ipadm create-ip net0
 # ipadm create-addr -T static -a local=10.9.8.7/24 net0
 net0/v4
@@ -11,7 +11,7 @@ net0/v4
 
 - ip v6 is configured as follow
 
-```
+```bash
 # ipadm create-ip net0
 # ipadm create-addr -T addrconf net0
 net0/v6
@@ -21,7 +21,7 @@ net0/v6a
 
 - Configure an interface as follow
 
-```
+```bash
 # ipadm create-ip net0
 # ipadm create-addr -T dhcp net0
 net0/v6a
@@ -29,7 +29,7 @@ net0/v6a
 
 - Use the addrconf argument with the –T option to specify an automatically generated IPv6 address:
 
-```
+```bash
 # ipadm create-ip net0
 # ipadm create-addr -T addrconf net0
 net0/v6
@@ -37,7 +37,7 @@ net0/v6
 
 - If you wanted to change the IP address that was provided for the net0 interface in the previous example, you would need to first remove the interface and then re-add it, as shown in the following example:
 
-```
+```bash
 # ipadm delete-addr net0/v4
 # ipadm create-addr -T static -a local=10.7.8.9/24 net0
 net0/v4
@@ -46,13 +46,13 @@ net0/v4
 - Configure persistent Routes
 - Because the /etc/defaultrouter file is deprecated in Oracle Solaris 11, you can no longer manage routes (default or otherwise) by using this file. Using the route command is the only way that you can manually add a route to a system. To make the changes persistent across reboots, use the –p option with the route command
 
-```
+```bash
 # route -p  add default ip-address
 ```
 
 - For example, you would add a route to network 10.0.5.0, which has its gateway as the border router, as follows:
 
-```
+```bash
 # route -p add -net 10.0.5.0/24 -gateway 10.0.5.150
 add net 10.0.5.0: gateway 10.0.5.150
 ```
